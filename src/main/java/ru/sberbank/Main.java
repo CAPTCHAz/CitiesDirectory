@@ -5,8 +5,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+
+import static ru.sberbank.Menu.print;
+import static ru.sberbank.Menu.printCities;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -41,8 +43,28 @@ public class Main {
             cities.add(city);
         }
         reader.close();
-        for (City s: cities){
-            System.out.println(s);
-        }
+
+        Comparator<City> byName = Comparator.comparing(City::getName);
+        Comparator<City> byDistrictAndName = Comparator.comparing(City::getDistrict).thenComparing(City::getName);
+        Scanner choice = new Scanner(System.in);
+        int usrChoice = 0;
+        do {
+            Menu.print();
+            usrChoice = choice.nextInt();
+            switch (usrChoice) {
+                case 1:
+                    printCities(cities);
+                    break;
+                case 2:
+                    cities.sort(byName);
+                    printCities(cities);
+                    break;
+                case 3:
+                    cities.sort(byDistrictAndName);
+                    printCities(cities);
+                    break;
+            }
+        } while (usrChoice!=4);
     }
 }
+

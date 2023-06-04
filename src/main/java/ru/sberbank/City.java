@@ -1,14 +1,15 @@
 package ru.sberbank;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 public class City {
     private String name, region, district, id, population, foundation;
-
 
     @Override
     public String toString() {
         return "City{" + getName() + getRegion() + getDistrict() + getPopulation() + getFoundation() + "}";
     }
-
 
     public String getName() {
         return "name='"+name + "',";
