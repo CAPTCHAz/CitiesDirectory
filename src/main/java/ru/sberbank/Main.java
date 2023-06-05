@@ -7,8 +7,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-import static ru.sberbank.Menu.print;
-import static ru.sberbank.Menu.printCities;
+import static ru.sberbank.Menu.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -63,8 +62,11 @@ public class Main {
                     cities.sort(byDistrictAndName);
                     printCities(cities);
                     break;
+                case 4:
+                    Menu.findFirst(cities);
+                    break;
             }
-        } while (usrChoice!=4);
+        } while (usrChoice!=5);
     }
 }
 

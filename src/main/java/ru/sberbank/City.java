@@ -1,8 +1,4 @@
 package ru.sberbank;
-
-import java.util.Collections;
-import java.util.Comparator;
-
 public class City {
     private String name, region, district, id, population, foundation;
 
@@ -46,6 +42,8 @@ public class City {
     public String getPopulation() {
         return "population='" + population + "',";
     }
+
+    public String getPopulationInt() {return population;}
 
     public void setPopulation(String population) {
         this.population = population;
