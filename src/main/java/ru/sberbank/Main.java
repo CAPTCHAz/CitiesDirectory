@@ -13,8 +13,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         final String FILE_PATH = "src\\main\\resources\\cities.csv";
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(FILE_PATH), StandardCharsets.UTF_8));
-        String line = null;
-        Scanner scanner = null;
+        String line;
+        Scanner scanner;
         int index = 0;
         ArrayList<City> cities = new ArrayList<>();
         while ((line = reader.readLine()) != null){
@@ -46,7 +46,7 @@ public class Main {
         Comparator<City> byName = Comparator.comparing(City::getName);
         Comparator<City> byDistrictAndName = Comparator.comparing(City::getDistrict).thenComparing(City::getName);
         Scanner choice = new Scanner(System.in);
-        int usrChoice = 0;
+        int usrChoice;
         do {
             Menu.print();
             usrChoice = choice.nextInt();
@@ -63,10 +63,13 @@ public class Main {
                     printCities(cities);
                     break;
                 case 4:
-                    Menu.findFirst(cities);
+                    findFirst(cities);
+                    break;
+                case 5:
+                    sumByRegion(cities);
                     break;
             }
-        } while (usrChoice!=5);
+        } while (usrChoice!=6);
     }
 }
 

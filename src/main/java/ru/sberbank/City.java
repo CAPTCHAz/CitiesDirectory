@@ -1,12 +1,11 @@
 package ru.sberbank;
+
 public class City {
     private String name, region, district, id, population, foundation;
-
     @Override
     public String toString() {
         return "City{" + getName() + getRegion() + getDistrict() + getPopulation() + getFoundation() + "}";
     }
-
     public String getName() {
         return "name='"+name + "',";
     }
@@ -17,6 +16,10 @@ public class City {
 
     public String getRegion() {
         return "region='" + region + "',";
+    }
+
+    public String getRegionName() {
+        return region;
     }
 
     public void setRegion(String region) {
@@ -35,7 +38,7 @@ public class City {
         return id;
     }
 
-    public void setId(String  id) {
+    public void setId(String id) {
         this.id = id;
     }
 
